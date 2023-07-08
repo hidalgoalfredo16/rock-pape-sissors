@@ -41,3 +41,29 @@ function playRound(playerSelection, computerSelection) {
     }
   }
 }
+
+function game() {
+  let userPoints = 0;
+  let computerPoints = 0;
+
+  for( let i = 0; i < 5; i++ ){
+    const computerSelection = getComputerChoice();
+    const playerSelection = prompt("Insert your choice: ");
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
+
+    if(result.includes('win')){
+      userPoints ++;
+    } else if(result.includes('loose')){
+      computerPoints ++;
+    }
+  }
+  
+  if(userPoints > computerPoints){
+    alert('you win the game!');
+  } else if(userPoints < computerPoints){
+    alert('you loose the game :(');
+  } else {
+    alert('Tie!');
+  }
+}
